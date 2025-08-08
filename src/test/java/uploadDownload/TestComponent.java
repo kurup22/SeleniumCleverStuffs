@@ -7,6 +7,7 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Iterator;
 
@@ -68,7 +69,23 @@ public class TestComponent {
 
         }
 
-        public void updateCell(int row, int col){
+        public void updateCell() throws IOException {
+            FileInputStream fis=new FileInputStream("C:\\Users\\VaVe\\Downloads\\download.xlsx");
+            XSSFWorkbook workbook=new XSSFWorkbook(fis);
+            XSSFSheet sheet=workbook.getSheetAt(0);
+             int row=getRowNumber();
+             int col=getColumn();
+             Row mrow=sheet.getRow(row);
+             Cell cell=mrow.getCell(col);
+             cell.setCellValue("599");
+            FileOutputStream fos=new FileOutputStream("C:\\Users\\VaVe\\Downloads\\download.xlsx");
+            workbook.write(fos);
+            workbook.close();
+            fis.close();
+            fos.close();
+
+
+
 
 
         }

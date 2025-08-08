@@ -2,9 +2,9 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="suite" verbose="1">
 
-        <test name="Submit Order Test">
+    <test name="UploadDownloadTests">
         <classes>
-            <class name="Tests.SubmitOrder" />
+            <class name="uploadDownload.UploadDownloadTest"/>
         </classes>
     </test>
 

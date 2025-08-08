@@ -1,4 +1,5 @@
 import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -14,6 +15,11 @@ public class PrintOnlyTheUnique {
                 .map(Map.Entry::getKey)
                 .forEach(System.out::println);
 
+        int a=freqMap.entrySet().stream()
+                .filter(s -> s.getValue() == 2)
+                .map(Map.Entry::getKey).sorted().
+                skip(2).findFirst().orElse(0);
 
+   System.out.println(" "+a);
     }
 }

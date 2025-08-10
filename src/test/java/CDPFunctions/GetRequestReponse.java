@@ -22,6 +22,8 @@ public class GetRequestReponse {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
         DevTools devtools=driver.getDevTools();
         devtools.createSession();
+
+       // priting request url
         devtools.send(Network.enable(Optional.empty(),
                 Optional.empty(),Optional.empty()));
 
@@ -33,6 +35,7 @@ public class GetRequestReponse {
 
         });
 
+// modifying url and sending back
        devtools.send(Fetch.enable(Optional.empty(),Optional.empty())) ;
        devtools.addListener(Fetch.requestPaused(),requestPaused -> {
            if(requestPaused.getRequest().getUrl().contains("GetBook")){
@@ -55,6 +58,6 @@ else {
    driver.get("https://rahulshettyacademy.com/angularAppdemo/");
       driver.findElement(By.cssSelector("button[routerlink='/library']")).click();
 
-      
+
     }
 }
